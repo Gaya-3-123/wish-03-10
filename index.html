@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday Vikram</title>
+<title>Goodbye Vikram</title>
 
 <style>
 *{
@@ -19,294 +18,203 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    font-family:Arial, sans-serif;
-
     background:
-        radial-gradient(circle at center,
-        #303030 0%,
-        #171717 45%,
-        #050505 100%);
-
+        radial-gradient(circle at 50% 45%,
+        #25284d 0%,
+        #101126 45%,
+        #03040b 100%);
+    font-family:Georgia,serif;
     color:white;
 }
 
-/* Background glow */
+/* Moon */
 
-.bg{
+.moon{
     position:absolute;
-    width:500px;
-    height:500px;
+    top:10%;
+    right:12%;
+    width:90px;
+    height:90px;
     border-radius:50%;
-
-    background:rgba(255,255,255,0.04);
-
-    filter:blur(70px);
-
-    animation:bgMove 5s ease-in-out infinite alternate;
+    background:#fff;
+    box-shadow:
+        0 0 20px #fff,
+        0 0 60px rgba(255,255,255,.4);
 }
 
-@keyframes bgMove{
-    from{
-        transform:scale(.8);
-        opacity:.3;
-    }
+/* Stars */
 
-    to{
-        transform:scale(1.3);
-        opacity:.7;
-    }
-}
-
-
-/* COUNTDOWN */
-
-.countdown{
+.star{
     position:absolute;
-    z-index:5;
-
-    font-size:130px;
-    font-weight:300;
-
-    letter-spacing:10px;
-
-    opacity:0;
-
-    text-shadow:
-        0 0 20px rgba(255,255,255,.4),
-        0 0 60px rgba(255,255,255,.15);
+    color:white;
+    font-size:10px;
+    animation:twinkle 2s infinite alternate;
 }
 
-.countdown.show{
-    animation:numberShow 1s ease forwards;
-}
-
-@keyframes numberShow{
-
-    0%{
-        opacity:0;
-        transform:scale(1.8);
-    }
-
-    25%{
-        opacity:1;
-        transform:scale(1);
-    }
-
-    75%{
-        opacity:1;
-        transform:scale(1);
-    }
-
-    100%{
-        opacity:0;
+@keyframes twinkle{
+    from{
+        opacity:.2;
         transform:scale(.6);
     }
+    to{
+        opacity:1;
+        transform:scale(1.3);
+        text-shadow:0 0 12px white;
+    }
 }
 
+/* Main */
 
-/* FINAL MESSAGE */
-
-.message{
-    position:relative;
-    z-index:10;
-
+.content{
     text-align:center;
-
-    opacity:0;
-    transform:translateY(25px);
-
-    pointer-events:none;
+    z-index:5;
+    animation:fadeIn 2s ease forwards;
 }
 
-.message.show{
-    animation:messageIn 2s ease forwards;
-}
-
-@keyframes messageIn{
-
+@keyframes fadeIn{
     from{
         opacity:0;
-        transform:translateY(25px);
+        transform:translateY(30px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-.message h1{
-    font-size:42px;
-    font-weight:500;
+h1{
+    font-size:48px;
+    font-weight:400;
+    letter-spacing:2px;
+    text-shadow:
+        0 0 15px rgba(255,255,255,.5);
+}
 
-    margin-bottom:25px;
-
+p{
+    margin-top:20px;
+    font-size:20px;
+    color:#ddd;
     letter-spacing:1px;
 }
 
-.message p{
-    font-size:20px;
-    line-height:1.8;
-
-    color:#dddddd;
-}
-
-.highlight{
-    color:white;
-    font-weight:bold;
-}
-
-.line{
-    width:0;
-    height:1px;
-
-    background:#777;
-
-    margin:25px auto;
-
-    animation:line 1.5s 1s forwards;
-}
-
-@keyframes line{
-    to{
-        width:180px;
-    }
-}
-
-.final{
-    margin-top:25px;
-
-    font-size:18px;
-    letter-spacing:2px;
-
+.small{
+    margin-top:30px;
+    font-size:16px;
     color:#aaa;
 }
 
+/* Pop particles */
 
-/* MOBILE */
+.pop{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:white;
+    animation:pop 3s ease-out forwards;
+}
 
-@media(max-width:600px){
-
-    .countdown{
-        font-size:90px;
+@keyframes pop{
+    0%{
+        transform:translate(0,0) scale(0);
+        opacity:1;
     }
 
-    .message{
-        padding:25px;
+    30%{
+        opacity:1;
     }
 
-    .message h1{
-        font-size:30px;
-    }
-
-    .message p{
-        font-size:17px;
+    100%{
+        transform:
+            translate(
+                calc((var(--x)) * 1px),
+                calc((var(--y)) * 1px)
+            )
+            scale(.2);
+        opacity:0;
     }
 }
 </style>
 </head>
 
-
 <body>
 
-<div class="bg"></div>
+<div class="moon"></div>
 
-<!-- COUNTDOWN -->
+<div class="content">
 
-<div class="countdown" id="countdown"></div>
-
-
-<!-- BIRTHDAY MESSAGE -->
-
-<div class="message" id="message">
-
-    <h1>
-        Happy Birthday Vikram 🎂
-    </h1>
-
-    <div class="line"></div>
+    <h1>Goodbye, Vikram 🌙</h1>
 
     <p>
-
-        Wish you many more happy returns of the day.
-
-        <br><br>
-
-        <span class="highlight">
-            Eppavuma happy-ah iru...
-        </span>
-
+        Take care of yourself...
         <br>
-
-        Life-la nee ninaikkira ellame
-
-        <br>
-
-        <span class="highlight">
-            success aaganum.
-        </span>
-
+        Keep smiling & stay happy always. ✨
     </p>
 
-    <div class="final">
-        GB TC
+    <div class="small">
+        GB TC ❤️
     </div>
 
 </div>
 
-
 <script>
 
-const countdown =
-document.getElementById("countdown");
+/* Stars */
 
-const message =
-document.getElementById("message");
+for(let i=0;i<80;i++){
 
-let numbers = ["3","2","1"];
+    const star=document.createElement("div");
 
-let index = 0;
+    star.className="star";
+    star.innerHTML="✦";
 
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
 
-/* Show each number */
+    star.style.fontSize=
+        (4+Math.random()*9)+"px";
 
-function showNumber(){
+    star.style.animationDelay=
+        Math.random()*3+"s";
 
-    if(index < numbers.length){
-
-        countdown.innerText =
-            numbers[index];
-
-        countdown.classList.remove("show");
-
-        /* restart animation */
-        void countdown.offsetWidth;
-
-        countdown.classList.add("show");
-
-        index++;
-
-        setTimeout(showNumber,1000);
-
-    }else{
-
-        /* After 3 2 1 */
-
-        setTimeout(()=>{
-
-            message.classList.add("show");
-
-        },300);
-
-    }
+    document.body.appendChild(star);
 }
 
 
-/* Start */
+/* Pop particles */
 
-setTimeout(showNumber,500);
+function createPop(){
+
+    const pop=document.createElement("div");
+
+    pop.className="pop";
+
+    pop.style.left="50vw";
+    pop.style.top="50vh";
+
+    pop.style.setProperty(
+        "--x",
+        (Math.random()*500-250)
+    );
+
+    pop.style.setProperty(
+        "--y",
+        (Math.random()*500-250)
+    );
+
+    document.body.appendChild(pop);
+
+    setTimeout(()=>{
+        pop.remove();
+    },3000);
+}
+
+setInterval(createPop,100);
 
 </script>
 
 </body>
 </html>
+   
+
+      
