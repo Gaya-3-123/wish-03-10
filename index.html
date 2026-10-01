@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>For Vikram ❤️</title>
+<title>Happy Birthday Vikram</title>
 
 <style>
 *{
@@ -17,15 +16,12 @@ body{
     height:100vh;
     overflow:hidden;
     background:
-        radial-gradient(circle at center,
-        #25284d 0%,
-        #101126 45%,
-        #02030a 100%);
+        radial-gradient(circle at center,#25284d,#101126 50%,#02030a);
     font-family:Georgia,serif;
     color:white;
 }
 
-/* ---------- MOON ---------- */
+/* Moon */
 
 .moon{
     position:absolute;
@@ -35,15 +31,10 @@ body{
     height:85px;
     border-radius:50%;
     background:#fff;
-
-    box-shadow:
-        0 0 20px #fff,
-        0 0 60px rgba(255,255,255,.45);
-
-    opacity:.9;
+    box-shadow:0 0 25px #fff,0 0 70px rgba(255,255,255,.4);
 }
 
-/* ---------- STARS ---------- */
+/* Stars */
 
 .star{
     position:absolute;
@@ -52,38 +43,22 @@ body{
 }
 
 @keyframes twinkle{
-    from{
-        opacity:.15;
-        transform:scale(.6);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1.3);
-        text-shadow:0 0 12px white;
-    }
+    from{opacity:.2;transform:scale(.6)}
+    to{opacity:1;transform:scale(1.3);text-shadow:0 0 12px white}
 }
 
-/* ---------- COUNTDOWN ---------- */
+/* Countdown */
 
 .countdown{
     position:absolute;
     inset:0;
-
     display:flex;
-    justify-content:center;
     align-items:center;
-
+    justify-content:center;
     font-size:130px;
-    font-weight:300;
-
+    z-index:20;
     opacity:0;
-
-    z-index:10;
-
-    text-shadow:
-        0 0 20px white,
-        0 0 60px rgba(255,255,255,.3);
+    text-shadow:0 0 25px white,0 0 60px #fff;
 }
 
 .countdown.show{
@@ -91,56 +66,44 @@ body{
 }
 
 @keyframes count{
-
     0%{
         opacity:0;
         transform:scale(1.8);
     }
-
     25%{
         opacity:1;
         transform:scale(1);
     }
-
-    70%{
-        opacity:1;
-    }
-
+    75%{opacity:1}
     100%{
         opacity:0;
         transform:scale(.5);
     }
 }
 
-/* ---------- MESSAGE ---------- */
+/* Birthday */
 
 .message{
     position:absolute;
     inset:0;
-
     display:flex;
-    justify-content:center;
     align-items:center;
-
+    justify-content:center;
     text-align:center;
-
     padding:25px;
-
     opacity:0;
-    z-index:5;
+    z-index:10;
 }
 
 .message.show{
-    animation:messageIn 2s ease forwards;
+    animation:appear 2s forwards;
 }
 
-@keyframes messageIn{
-
+@keyframes appear{
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(25px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
@@ -151,135 +114,77 @@ body{
     font-size:42px;
     font-weight:400;
     margin-bottom:25px;
-
-    text-shadow:
-        0 0 15px rgba(255,255,255,.5);
 }
 
 .message p{
     font-size:20px;
     line-height:1.9;
-    color:#eee;
-}
-
-.highlight{
-    color:#fff;
-    font-weight:bold;
 }
 
 .line{
-    width:0;
+    width:180px;
     height:1px;
     background:#aaa;
-    margin:25px auto;
-
-    animation:lineGrow 1.5s 1s forwards;
+    margin:20px auto;
 }
 
-@keyframes lineGrow{
-    to{
-        width:180px;
-    }
-}
-
-/* ---------- GOODBYE ---------- */
+/* Goodbye */
 
 .goodbye{
     position:absolute;
     inset:0;
-
     display:flex;
-    justify-content:center;
     align-items:center;
-
+    justify-content:center;
     text-align:center;
-
     opacity:0;
-    z-index:20;
-
-    pointer-events:none;
+    z-index:30;
 }
 
 .goodbye.show{
-    animation:goodbyeIn 2.5s ease forwards;
+    animation:goodbye 2s forwards;
 }
 
-@keyframes goodbyeIn{
-
-    0%{
+@keyframes goodbye{
+    from{
         opacity:0;
         transform:scale(.85);
     }
-
-    50%{
-        opacity:1;
-        transform:scale(1.03);
-    }
-
-    100%{
+    to{
         opacity:1;
         transform:scale(1);
     }
 }
 
 .goodbye h2{
-    font-size:42px;
+    font-size:44px;
     font-weight:400;
-
-    text-shadow:
-        0 0 15px white,
-        0 0 40px rgba(255,255,255,.3);
 }
 
 .goodbye p{
     margin-top:20px;
-    font-size:19px;
-    color:#ddd;
+    font-size:21px;
 }
 
-.signature{
-    margin-top:30px;
-    font-size:16px;
-    letter-spacing:4px;
-    color:#aaa;
-}
+/* FIREWORK */
 
-/* ---------- POP PARTICLES ---------- */
-
-.pop{
+.firework{
     position:absolute;
-
-    width:6px;
-    height:6px;
-
+    width:5px;
+    height:5px;
     border-radius:50%;
-
     background:white;
-
     pointer-events:none;
-
-    z-index:2;
-
-    animation:pop 2.5s ease-out forwards;
+    z-index:50;
+    animation:explode 1.4s ease-out forwards;
 }
 
-@keyframes pop{
+@keyframes explode{
 
     0%{
-        transform:
-            translate(0,0)
-            scale(0);
-
+        transform:translate(0,0) scale(1);
         opacity:1;
-    }
-
-    20%{
-        transform:
-            translate(
-                calc(var(--x) * .3px),
-                calc(var(--y) * .3px)
-            )
-            scale(1);
+        box-shadow:0 0 10px white;
     }
 
     100%{
@@ -289,12 +194,34 @@ body{
                 calc(var(--y) * 1px)
             )
             scale(.1);
-
         opacity:0;
     }
 }
 
-/* MOBILE */
+/* FIREWORK FLASH */
+
+.flash{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(255,255,255,.25);
+    filter:blur(25px);
+    pointer-events:none;
+    z-index:40;
+    animation:flash .5s forwards;
+}
+
+@keyframes flash{
+    from{
+        opacity:1;
+        transform:scale(.2);
+    }
+    to{
+        opacity:0;
+        transform:scale(2);
+    }
+}
 
 @media(max-width:600px){
 
@@ -311,12 +238,7 @@ body{
     }
 
     .goodbye h2{
-        font-size:32px;
-    }
-
-    .moon{
-        width:60px;
-        height:60px;
+        font-size:34px;
     }
 }
 </style>
@@ -324,63 +246,42 @@ body{
 
 <body>
 
-<!-- MOON -->
 <div class="moon"></div>
 
-<!-- COUNTDOWN -->
 <div class="countdown" id="countdown"></div>
 
-
-<!-- BIRTHDAY MESSAGE -->
 <div class="message" id="message">
 
     <div>
 
-        <h1>
-            Happy Birthday Vikram 🎂
-        </h1>
+        <h1>Happy Birthday Vikram 🎂</h1>
 
         <div class="line"></div>
 
         <p>
-
-            <b>Wish you many more happy returns of the day.</b>
-
+            Wish you many more happy returns of the day.
             <br><br>
 
-            <span class="highlight">
-                Eppavuma happy-ah iru...
-            </span>
-
+            Eppavuma happy-ah iru... ❤️
             <br>
 
-            <span class="highlight">
-                Life-la nee ninaikkira ellame success aaganum.
-            </span>
+            Life-la nee ninaikkira ellame
+            <br>
 
+            success aaganum. ✨
         </p>
 
     </div>
 
 </div>
 
-
-<!-- GOODBYE -->
 <div class="goodbye" id="goodbye">
 
     <div>
 
-        <h2>
-            Goodbye... 🌙
-        </h2>
+        <h2>Goodbye... 🌙</h2>
 
-        <p>
-            Take care ❤️
-        </p>
-
-        <div class="signature">
-            GB TC
-        </div>
+        <p>Take care ❤️</p>
 
     </div>
 
@@ -389,21 +290,17 @@ body{
 
 <script>
 
-/* ---------- CREATE STARS ---------- */
+/* STARS */
 
 for(let i=0;i<90;i++){
 
-    const star=document.createElement("div");
+    let star=document.createElement("div");
 
     star.className="star";
-
     star.innerHTML="✦";
 
-    star.style.left=
-        Math.random()*100+"vw";
-
-    star.style.top=
-        Math.random()*100+"vh";
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
 
     star.style.fontSize=
         (4+Math.random()*9)+"px";
@@ -415,36 +312,88 @@ for(let i=0;i<90;i++){
 }
 
 
-/* ---------- POP EFFECT ---------- */
+/* FIREWORK */
 
-function createPop(){
+function firework(x,y){
 
-    const pop=document.createElement("div");
+    /* Flash */
 
-    pop.className="pop";
+    let flash=document.createElement("div");
 
-    pop.style.left="50vw";
-    pop.style.top="50vh";
+    flash.className="flash";
 
-    pop.style.setProperty(
-        "--x",
-        Math.random()*600-300
-    );
+    flash.style.left=(x-90)+"px";
+    flash.style.top=(y-90)+"px";
 
-    pop.style.setProperty(
-        "--y",
-        Math.random()*600-300
-    );
-
-    document.body.appendChild(pop);
+    document.body.appendChild(flash);
 
     setTimeout(()=>{
-        pop.remove();
-    },2500);
+        flash.remove();
+    },600);
+
+
+    /* Particles */
+
+    for(let i=0;i<45;i++){
+
+        let particle=document.createElement("div");
+
+        particle.className="firework";
+
+        particle.style.left=x+"px";
+        particle.style.top=y+"px";
+
+        let angle=
+            Math.random()*Math.PI*2;
+
+        let distance=
+            80+Math.random()*180;
+
+        particle.style.setProperty(
+            "--x",
+            Math.cos(angle)*distance
+        );
+
+        particle.style.setProperty(
+            "--y",
+            Math.sin(angle)*distance
+        );
+
+        document.body.appendChild(particle);
+
+        setTimeout(()=>{
+            particle.remove();
+        },1500);
+    }
 }
 
 
-/* ---------- COUNTDOWN ---------- */
+/* MULTIPLE FIREWORKS */
+
+function fireworks(){
+
+    firework(
+        window.innerWidth*.25,
+        window.innerHeight*.35
+    );
+
+    setTimeout(()=>{
+        firework(
+            window.innerWidth*.75,
+            window.innerHeight*.30
+        );
+    },250);
+
+    setTimeout(()=>{
+        firework(
+            window.innerWidth*.5,
+            window.innerHeight*.25
+        );
+    },500);
+}
+
+
+/* COUNTDOWN */
 
 const countdown=
 document.getElementById("countdown");
@@ -457,80 +406,67 @@ document.getElementById("goodbye");
 
 const numbers=["3","2","1"];
 
-let index=0;
+let i=0;
 
 
-function showCountdown(){
+function count(){
 
-    if(index < numbers.length){
+    if(i<numbers.length){
 
-        countdown.innerText=
-            numbers[index];
+        countdown.innerText=numbers[i];
 
         countdown.classList.remove("show");
 
-        /* Restart animation */
         void countdown.offsetWidth;
 
         countdown.classList.add("show");
 
-        /* Small pop when number appears */
-        for(let i=0;i<10;i++){
-            setTimeout(createPop,i*30);
-        }
+        i++;
 
-        index++;
-
-        setTimeout(
-            showCountdown,
-            1000
-        );
+        setTimeout(count,1000);
 
     }else{
 
-        /* Show birthday message */
+        /* BIG FIREWORK */
 
         setTimeout(()=>{
+            fireworks();
+        },200);
 
+        /* Birthday */
+
+        setTimeout(()=>{
             message.classList.add("show");
+        },700);
 
-        },300);
 
-
-        /* Hide birthday after 6 seconds */
+        /* Goodbye after birthday */
 
         setTimeout(()=>{
 
-            message.style.animation=
-                "fadeOut 1.5s forwards";
+            message.style.opacity="0";
+
+            fireworks();
 
         },6500);
 
-
-        /* Goodbye */
 
         setTimeout(()=>{
 
             goodbye.classList.add("show");
 
-            for(let i=0;i<40;i++){
-                setTimeout(
-                    createPop,
-                    i*40
-                );
-            }
+        },7200);
 
-        },8000);
+
+        /* Final fireworks */
+
+        setTimeout(()=>{
+            fireworks();
+        },8500);
     }
 }
 
-
-/* START */
-
-setTimeout(
-    showCountdown,
-    800
-);
+setTimeout(count,800);
 
 </script>
 
